@@ -8,7 +8,7 @@ public enum Especie {
     REPTIL(5);
 
     private int code;
-    
+
     private Especie(int code){this.code = code;}
 
     public static  Especie valueof(int code){
