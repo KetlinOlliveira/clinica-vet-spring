@@ -11,7 +11,10 @@ public enum Especie {
 
     private Especie(int code){this.code = code;}
 
-    public static  Especie valueof(int code){
+    public int getCode(){
+        return code;
+    }
+    public static Especie valueOf(int code){
         for(Especie value: Especie.values()){
             if(value.getCode() == code){
                 return value;

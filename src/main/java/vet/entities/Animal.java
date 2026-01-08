@@ -1,28 +1,38 @@
 package vet.entities;
 
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Animal {
+@Entity
+@Table(name = "tb_animal")
+public class Animal implements Serializable {
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String raca;
     private Date dataNascimento;
+    private Integer especie;
 
-    private Especie especie;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente dono;
 
     public Animal(){
 
     }
-    public Animal(Long id, String nome, Especie especie, Date data, String raca, Cliente cliente){
+    public Animal(Long id, String nome, Especie especie, Date data, String raca, Cliente dono){
         this.id = id;
         this.nome = nome;
-        this.especie = especie;
+        setEspecie(especie);
         this.dataNascimento = data;
         this.raca = raca;
-        this.dono = cliente;
+        this.dono = dono;
     }
 
     public Long getId() {
@@ -57,12 +67,13 @@ public class Animal {
     }
 
     public Especie getEspecie() {
-        return especie;
+        return Especie.valueOf(especie);
     }
 
-    public Animal setEspecie(Especie especie) {
-        this.especie = especie;
-        return this;
+    public void setEspecie(Especie especie) {
+      if(especie != null){
+          this.especie = especie.getCode();
+      }
     }
 
     public Cliente getDono() {
