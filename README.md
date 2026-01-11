@@ -1,6 +1,6 @@
 
 <h1 align="center">  🐇 Wapet API: Gestão de Clínica Veterinária </h1>
- Bem-vindo à VetCare API, uma solução robusta para o gerenciamento de atendimentos, pacientes (animais) e corpo clínico de uma clínica veterinária.
+ Bem-vindo à Wapet API, uma solução robusta para o gerenciamento de atendimentos, pacientes (animais) e corpo clínico de uma clínica veterinária.
 
 > :construction: Em construção :construction:
 
